@@ -14,9 +14,6 @@ jobs:
 
       - uses: superfly/flyctl-actions/setup-flyctl@master
 
-      - name: Launch App if not exists & Deploy
+      - run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-        run: |
-          # محاولة النشر المباشر، وفي حال عدم وجود التطبيق يتم إنشاؤه تلقائياً
-          flyctl deploy --remote-only || (flyctl apps create $(grep '^app =' fly.toml | cut -d '"' -f 2) --org personal && flyctl deploy --remote-only)
