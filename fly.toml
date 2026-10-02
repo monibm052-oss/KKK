@@ -1,4 +1,4 @@
-app = "my-flask-project"
+app = "my-flask-project222"
 primary_region = "fra"
 
 [build]
